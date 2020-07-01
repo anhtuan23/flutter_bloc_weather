@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter_bloc_weather/models/models.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
