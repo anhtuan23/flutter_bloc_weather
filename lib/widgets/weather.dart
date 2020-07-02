@@ -31,6 +31,7 @@ class Weather extends StatelessWidget {
       ),
       body: Center(
         child: BlocBuilder<WeatherBloc, WeatherState>(
+          // ignore: missing_return
           builder: (context, state) {
             if (state is WeatherInitial) {
               return Center(child: Text('Please Select a Location'));
