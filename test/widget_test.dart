@@ -6,14 +6,19 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc_weather/repositories/repositories.dart';
 import 'package:flutter_test/flutter_test.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:flutter_bloc_weather/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(App(
+      weatherRepository: WeatherRepository(
+        weatherApiClient: WeatherApiClient(httpClient: http.Client()),
+      ),
+    ));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
